@@ -117,10 +117,147 @@
             border: 1px solid #f5c6cb;
             display: block;
         }
+
+        .ad-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border: 2px solid #667eea;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+        }
+
+        .ad-title {
+            color: #333;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .ad-content {
+            color: #444;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .ad-content p {
+            margin-bottom: 12px;
+        }
+
+        .ad-content strong {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .ad-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 15px 0;
+        }
+
+        .ad-list li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .ad-list li:before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .ad-highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .contact-info-title {
+            color: #333;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-item {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .contact-item strong {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .contact-item a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="ad-section">
+            <div class="ad-title">Remote Collaboration Opportunity</div>
+            <div class="ad-content">
+                <p>Looking for reliable partners from <strong>US, Canada, EU, or Latin America</strong></p>
+                <p>Age <strong>21–35</strong> (around 30 preferred)</p>
+                <ul class="ad-list">
+                    <li>Good local + English communication</li>
+                    <li>Trustworthy, motivated, long-term mindset</li>
+                    <li>Tech/software skills are a plus (not required)</li>
+                </ul>
+                <div class="ad-highlight">
+                    💰 Stable monthly income: $3,000–$10,000+<br>
+                    🌍 Fully remote | Long-term collaboration
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-info">
+            <div class="contact-info-title">Contact Information</div>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <strong>Email:</strong> <a href="mailto:austinaims184599@gmail.com">austinaims184599@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Telegram:</strong> <a href="https://t.me/austinims" target="_blank">@austinims</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Discord:</strong> austinaims_184599
+                </div>
+            </div>
+        </div>
+        
         <h1>Get in Touch</h1>
         <p class="subtitle">Register your email to stay connected</p>
         
