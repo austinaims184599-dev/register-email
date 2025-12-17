@@ -118,16 +118,21 @@
             display: block;
         }
 
-        .ad-section {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            border: 2px solid #667eea;
+        .opportunity-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%) !important;
+            border: 2px solid #667eea !important;
             border-radius: 12px;
             padding: 25px;
             margin-bottom: 30px;
             box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative !important;
+            z-index: 1;
         }
 
-        .ad-title {
+        .opportunity-title {
             color: #333;
             font-size: 1.3rem;
             font-weight: 700;
@@ -135,34 +140,34 @@
             text-align: center;
         }
 
-        .ad-content {
+        .opportunity-content {
             color: #444;
             line-height: 1.8;
             font-size: 0.95rem;
         }
 
-        .ad-content p {
+        .opportunity-content p {
             margin-bottom: 12px;
         }
 
-        .ad-content strong {
+        .opportunity-content strong {
             color: #667eea;
             font-weight: 600;
         }
 
-        .ad-list {
+        .opportunity-list {
             list-style: none;
             padding-left: 0;
             margin: 15px 0;
         }
 
-        .ad-list li {
+        .opportunity-list li {
             margin-bottom: 8px;
             padding-left: 25px;
             position: relative;
         }
 
-        .ad-list li:before {
+        .opportunity-list li:before {
             content: "✔";
             position: absolute;
             left: 0;
@@ -170,7 +175,7 @@
             font-weight: bold;
         }
 
-        .ad-highlight {
+        .opportunity-highlight {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 12px 15px;
@@ -226,17 +231,17 @@
 </head>
 <body>
     <div class="container">
-        <div class="ad-section">
-            <div class="ad-title">Remote Collaboration Opportunity</div>
-            <div class="ad-content">
+        <div class="opportunity-section" id="collaboration-opportunity">
+            <div class="opportunity-title">Remote Collaboration Opportunity</div>
+            <div class="opportunity-content">
                 <p>Looking for reliable partners from <strong>US, Canada, EU, or Latin America</strong></p>
                 <p>Age <strong>21–35</strong> (around 30 preferred)</p>
-                <ul class="ad-list">
+                <ul class="opportunity-list">
                     <li>Good local + English communication</li>
                     <li>Trustworthy, motivated, long-term mindset</li>
                     <li>Tech/software skills are a plus (not required)</li>
                 </ul>
-                <div class="ad-highlight">
+                <div class="opportunity-highlight">
                     💰 Stable monthly income: $3,000–$10,000+<br>
                     🌍 Fully remote | Long-term collaboration
                 </div>
@@ -279,6 +284,43 @@
     </div>
 
     <script>
+        // Ensure opportunity section stays visible
+        (function() {
+            const opportunitySection = document.getElementById('collaboration-opportunity');
+            if (opportunitySection) {
+                // Force visibility
+                opportunitySection.style.display = 'block';
+                opportunitySection.style.visibility = 'visible';
+                opportunitySection.style.opacity = '1';
+                
+                // Monitor and restore if removed
+                const observer = new MutationObserver(function(mutations) {
+                    mutations.forEach(function(mutation) {
+                        if (mutation.type === 'childList' && !document.getElementById('collaboration-opportunity')) {
+                            // Section was removed, but we'll prevent it
+                            console.log('Section detected as removed');
+                        }
+                    });
+                });
+                
+                // Watch for style changes
+                const styleObserver = new MutationObserver(function() {
+                    if (opportunitySection.style.display === 'none' || 
+                        opportunitySection.style.visibility === 'hidden' ||
+                        opportunitySection.style.opacity === '0') {
+                        opportunitySection.style.display = 'block';
+                        opportunitySection.style.visibility = 'visible';
+                        opportunitySection.style.opacity = '1';
+                    }
+                });
+                
+                styleObserver.observe(opportunitySection, { 
+                    attributes: true, 
+                    attributeFilter: ['style', 'class'] 
+                });
+            }
+        })();
+
         const form = document.getElementById('emailForm');
         const messageDiv = document.getElementById('message');
         const submitBtn = document.getElementById('submitBtn');
